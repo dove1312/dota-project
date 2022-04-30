@@ -80,6 +80,8 @@ const Home = () => {
     //     return 0;
     // })
 
+    console.log(userInput)
+
     return (
         <div className='wrapper'>
             <nav className="topNav">
