@@ -1,0 +1,167 @@
+@import './styles/sass/partials/setup';
+
+
+body{
+    background-color: #1c242d;
+    color: white;
+}
+
+.wrapper{
+    max-width: 1200px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.heroList {
+    display:flex;
+    flex-wrap:wrap;
+    list-style: none;
+}
+
+.heroImg{
+    width: 256px;
+    height: 144px;
+}
+
+.topNav{
+    background-color: #242F39;
+    padding: 15px;
+}
+
+.topNavList{
+    display: flex;
+    list-style: none;
+    align-items: center;
+}
+
+.topNavList li{
+    margin-right: 20px;
+    
+    a{
+        text-decoration: none;
+    }
+}
+
+
+.topNavList li a:visited{
+    color: #DFE4EB;
+}
+
+.homeButton{
+    background-color: #5f7a99;
+    padding: 5px 15px;
+    border-radius: 3px;
+    
+    a{
+        color: blue;
+    }
+}
+
+.form{
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.searchInput{
+    width: 400px;
+    padding: 10px;
+    background-color: #1C242D;
+    color: white;
+    border: none;
+}
+
+.inputWrapper{
+    width: 600px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #242F39;
+}
+
+.searchButton{
+    color: #92BB35;
+    background-color: #1C242D;
+    border: 1px solid #92BB35;
+    padding: 8px 15px;
+    letter-spacing: 1px;
+}
+
+.playerOverview{
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    background-color: #2E3740;
+
+    .playerName{
+        font-size: 24px;
+    }
+
+    img{
+        width: 100px;
+        margin-right: 10px;
+    }
+
+    .playerOverviewLeft{
+        display: flex;
+    }
+    
+    .playerOverviewRight{
+        display: flex;
+
+        div{
+            margin-left: 30px;
+        }
+    }
+}
+
+.header{
+    margin-top: 30px;
+}
+
+.labelContainer{
+    padding: 10px 0;
+    display: flex;
+    
+    div{
+        margin-right: 30px;
+    }
+
+    .label1{
+        margin-right: 280px;
+    }
+}
+
+.mostPlayedHeroesRow{
+    height: 50px;
+    display: flex;
+    list-style: none;
+
+    img{
+        margin-right: 10px;
+    }
+
+    .mostPlayedHeroNames{
+        width: 187px;
+    }
+
+    .mostPlayedHeroesMatchCount{
+        margin-right: 65px;
+    }
+
+    span{
+        margin-right: 30px;
+    }
+}
+
+.playerInfoBox{
+    background-color: #242F39;
+}
+
+.lobbyType{
+    text-transform: capitalize;
+}
