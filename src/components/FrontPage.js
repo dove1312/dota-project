@@ -6,13 +6,13 @@ import HeroList from './HeroList';
 import TopNav from './TopNav';
 import axios from "axios";
 import { useEffect, useState } from "react";
-import Players from './PlayerInfo';
+import PlayerInfo from './PlayerInfo';
 import SearchResult from './SearchResult';
 import MatchDetails from './MatchDetails';
+import { Link, useParams } from 'react-router-dom';
+
 
 function FrontPage() {
-
-
 
   const [heroesData, setHeroesData] = useState();
 
@@ -53,7 +53,7 @@ function FrontPage() {
         <Route path="/HeroList" element={<HeroList heroesData={heroesData} />} />
         <Route path="/HeroList/:heroName" element={<HeroInfo heroesData={heroesData} />} />
         <Route path="/search/:playerName" element={<SearchResult />} />
-        <Route path="/Player/:playerId" element={<Players heroesData={heroesData} />} />
+        <Route path="/player/:playerId" element={<PlayerInfo heroesData={heroesData} />} />
         <Route path="/matches/:matchId" element={<MatchDetails heroesData={heroesData}/>}/>
       </Routes>
     </>

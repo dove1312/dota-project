@@ -7,38 +7,17 @@ import PlayerOverview from './PlayerOverview';
 
 const Players = ({ heroesData }) => {
 
-    const [playerWinLoss, setPlayerWinLoss] = useState();
-    const [searchResult, setSearchResult] = useState();
-    const [recentMatches, setRecentMatches] = useState();
-    const [matchHistoryData, setMatchHistoryData] = useState();
+
     // const [playerHeroData, setPlayerHeroData] = useState();
 
     const { playerId } = useParams();
 
     // console.log(playerId)
 
-    const getLastPlayedTime = (matchInfo) => {
-        const currentTime = new Date();
-        const passedTime = currentTime.getTime() - matchInfo.data[0].start_time * 1000;
-
-        let playedDate = 0
-        if (passedTime < 60000) {
-            playedDate = 1;
-            return "2 minutes ago";
-        } else if (passedTime < 3600000) {
-            playedDate = passedTime / 60000;
-            return `${Math.floor(playedDate)} minute${passedTime < 120000 ? ' ' : 's'} ago`;
-        } else if (passedTime < 86400000) {
-            playedDate = passedTime / 3600000;
-            return `${Math.floor(playedDate)} hour${passedTime < 7200000 ? ' ' : 's'} ago`;
-        } else if (passedTime < 31536000000) {
-            playedDate = passedTime / 86400000;
-            return `${Math.floor(playedDate)} day${passedTime < 172800000 ? ' ' : 's'} ago`;
-        } else {
-            playedDate = passedTime / 31536000000;
-            return `${Math.floor(playedDate)} year${passedTime < 63072000000 ? ' ' : 's'} ago`;
-        }
-    }
+    const [playerWinLoss, setPlayerWinLoss] = useState();
+    const [searchResult, setSearchResult] = useState();
+    const [recentMatches, setRecentMatches] = useState();
+    const [matchHistoryData, setMatchHistoryData] = useState();
 
     const fetchPlayerData = async () => {
         const search = await axios({
@@ -69,6 +48,28 @@ const Players = ({ heroesData }) => {
 
         const slicedHeroData = playerHeroApi.data.slice(0, 10)
 
+        const getLastPlayedTime = (matchInfo) => {
+            const currentTime = new Date();
+            const passedTime = currentTime.getTime() - matchInfo.data[0].start_time * 1000;
+
+            let playedDate = 0
+            if (passedTime < 60000) {
+                playedDate = 1;
+                return "2 minutes ago";
+            } else if (passedTime < 3600000) {
+                playedDate = passedTime / 60000;
+                return `${Math.floor(playedDate)} minute${passedTime < 120000 ? ' ' : 's'} ago`;
+            } else if (passedTime < 86400000) {
+                playedDate = passedTime / 3600000;
+                return `${Math.floor(playedDate)} hour${passedTime < 7200000 ? ' ' : 's'} ago`;
+            } else if (passedTime < 31536000000) {
+                playedDate = passedTime / 86400000;
+                return `${Math.floor(playedDate)} day${passedTime < 172800000 ? ' ' : 's'} ago`;
+            } else {
+                playedDate = passedTime / 31536000000;
+                return `${Math.floor(playedDate)} year${passedTime < 63072000000 ? ' ' : 's'} ago`;
+            }
+        }
 
         const lastMatchTime = getLastPlayedTime(recentMatchesApi)
 
@@ -90,6 +91,8 @@ const Players = ({ heroesData }) => {
         fetchPlayerData();
     }, [])
 
+
+
     // console.log(heroesData)
 
 
@@ -98,7 +101,7 @@ const Players = ({ heroesData }) => {
         <div className="wrapper">
             <div className="playerList">
                 <PlayerOverview matchHistoryData={matchHistoryData} searchResult={searchResult} heroesData={heroesData} />
-                <MatchHistory recentMatchesData={matchHistoryData?.recentMatchesData} heroesData={heroesData}/>
+                <MatchHistory recentMatchesData={matchHistoryData?.recentMatchesData} heroesData={heroesData} />
             </div>
         </div>
     )

@@ -24,7 +24,7 @@ const SearchResult = () => {
             {searchResult?.map((eachUser) => {
                     return (
                         <li>
-                            <Link to={`/Player/${eachUser.account_id}`}>
+                            <Link to={`/player/${eachUser.account_id}`}>
                                 <p>{eachUser.personaname}</p>
                                 <img className='playerAvatar' src={eachUser.avatarfull} alt={`avatar of ${eachUser.personaname}`} />
                             </Link>
