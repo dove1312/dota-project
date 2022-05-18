@@ -14,7 +14,7 @@ const SearchResult = () => {
                 q: playerName
             }
         }).then((search) => {
-            // console.log(search.data)
+            console.log(search.data)
             setSearchResult(search.data)
         })
     }, [])

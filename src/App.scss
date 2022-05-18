@@ -92,10 +92,12 @@ body{
 }
 
 .playerOverview{
-    padding: 10px;
+    padding: 30px;
     display: flex;
     justify-content: space-between;
     background-color: #2E3740;
+    border-radius: 6px;
+    margin: 30px 0;
 
     .playerName{
         font-size: 24px;
@@ -124,29 +126,45 @@ body{
 }
 
 .labelContainer{
-    padding: 10px 0;
+    padding: 10px 50px;
     display: flex;
+    background-color: #242F39;
+    border-bottom: 1px solid rgb(171,175,179,0.5);
+    // margin-bottom: 10px;
     
     div{
         margin-right: 30px;
     }
 
     .label1{
-        margin-right: 280px;
+        width: 223px;
+        // margin-right: 280px;
+    }
+
+    .label2{
+        width: 80px;
     }
 }
 
+// .mostPlayedHeroesContainer{
+//     padding: 20px;
+// }
+
+
 .mostPlayedHeroesRow{
-    height: 50px;
+    padding: 10px 20px;
     display: flex;
+    align-items: center;
     list-style: none;
+    background-color: #242f39;
+    border-bottom: 1px solid rgb(171,175,179,0.5);
 
     img{
         margin-right: 10px;
     }
 
     .mostPlayedHeroNames{
-        width: 187px;
+        width: 200px;
     }
 
     .mostPlayedHeroesMatchCount{
@@ -158,10 +176,211 @@ body{
     }
 }
 
-.playerInfoBox{
-    background-color: #242F39;
-}
-
 .lobbyType{
     text-transform: capitalize;
+}
+
+.recentMatchesNav{
+    padding: 10px 50px;
+    display: flex;
+    // justify-content: center;
+    text-align: center;
+    background-color: #242F39;
+    margin-bottom: 10px;
+    .label1{
+        width: 25%;
+    }
+    .label2{
+        width: 20%;
+    }
+    .label3{
+        width: 20%;
+    }
+    .label4{
+        width: 20%;
+    }
+    .label5{
+        width: 20%;
+    }
+}
+
+.matchHistoryContainer{
+
+    a{
+        color: #DFE4EB;
+    }
+
+    a:visited{
+        color: #DFE4EB;
+    }
+}
+
+.matchHistory{
+    padding: 50px;
+    margin-bottom: 20px;
+    display: flex;
+    // justify-content: center;
+    align-items: center;
+    list-style: none;
+    background-color: #242F39;
+    border-radius: 6px;
+    // text-align: center;
+}
+
+.capital{
+    text-transform: capitalize;
+}
+
+.itemsContainer{
+    display: flex;
+}
+
+.mostPlayedHeroesImg{
+    height: 50px;
+    margin-right: 5px;
+}
+
+.row1{
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    img{
+        object-fit: contain;
+    }
+    
+}
+
+.row2{
+    width: 20%;
+    text-align: center;
+}
+
+.row3{
+    width: 20%;
+    text-align: center;
+}
+
+.row4{
+    width: 20%;
+    text-align: center;
+}
+
+.row5{
+    width: 20%;
+    text-align: center;
+}
+
+.playedHeroName{
+    color: #a9cf54;
+    // text-decoration: none;
+}
+
+.matchDetails{
+    img{
+        height: 40px;
+    }
+}
+
+.matchDetailContainer{
+    background-color: #242f39;
+    padding: 10px 20px;
+    border-radius: 6px;
+}
+
+.gameResult{
+    text-align: center;
+}
+
+.gameScoreContainer{
+    text-align: center;
+    margin-top: 10px;
+}
+
+.gameTimer{
+    font-size: 24px;
+    font-weight: lighter;
+    margin: 0 6px;
+}
+
+.scoreLeft{
+    font-size: 24px;
+    color: #92BB35;
+}
+
+.scoreRight{
+    font-size: 24px;
+    color: #c23c2a;
+}
+
+.teamRadiant{
+    color: #92BB35;
+    font-weight: normal;
+}
+
+.matchDetailsTitle{
+    margin-bottom: 30px;
+}
+
+.playerRow{
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid darkslategray;
+}
+
+.mdRow{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    p{
+        text-align: center;
+    }
+}
+
+.mdRow1{
+    width: 7%;
+}
+
+.mdRow2{
+    width: 15%;
+    margin: 0 10px;
+}
+
+.mdRow3{
+    width: 10%;
+}
+
+.mdRow4{
+    width: 10%;
+}
+
+.mdRow5{
+    width: 6%;
+}
+
+.mdRow6{
+    width: 6%;
+}
+
+.mdRow7{
+    width: 6%;
+    margin-right: 20px;
+}
+
+.matchDetails a{
+    color: #a9cf54;
+}
+
+a{
+    text-decoration: none;
+}
+
+.description{
+    color: #abafb3;
+}
+
+.imgContainer{
+    border: 1px solid #abafb3;
 }

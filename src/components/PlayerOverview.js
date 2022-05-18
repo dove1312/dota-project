@@ -14,7 +14,7 @@ const playerOverview = ({ matchHistoryData, searchResult, heroesData }) => {
                             {searchResult?.profile.personaname}
                         </div>
                         <div>
-                            Overview
+                            <p>Overview</p>
                         </div>
                     </div>
                 </div>
@@ -40,27 +40,30 @@ const playerOverview = ({ matchHistoryData, searchResult, heroesData }) => {
                     <div className="label2">Matches</div>
                     <div className="label3">Win%</div>
                 </div>
-                {
-                    matchHistoryData?.playerheroData.map((asd) => {
+                <div className="mostPlayedHeroesContainer">
+                    {
+                        matchHistoryData?.playerheroData.map((asd) => {
+                            // console.log(asd)
 
-                        const heroWinRate = asd.win * 100 / asd.games
+                            const heroWinRate = asd.win * 100 / asd.games
 
-                        const findHero = heroesData?.filter((heroObject) => {
-                            return `${heroObject.hero_id}` === `${asd.hero_id}`
+                            const findHero = heroesData?.filter((heroObject) => {
+                                return `${heroObject.hero_id}` === `${asd.hero_id}`
+                            })
+
+                            // console.log(findHero)
+
+                            return (
+                                <li className='mostPlayedHeroesRow'>
+                                    <img src={`https://api.opendota.com${findHero[0].img}`} alt="" className="mostPlayedHeroesImg" />
+                                    <div className="mostPlayedHeroNames">{findHero[0].localized_name}</div>
+                                    <div className="mostPlayedHeroesMatchCount">{asd.games}</div>
+                                    <div className="mostPlayedHeroesWinRate">{heroWinRate?.toFixed(2)}%</div>
+                                </li>
+                            )
                         })
-
-                        // console.log(findHero)
-
-                        return (
-                            <li className='mostPlayedHeroesRow'>
-                                <img src={`https://api.opendota.com${findHero[0].img}`} alt="" className="mostPlayedHeroesImg" />
-                                <div className="mostPlayedHeroNames">{findHero[0].localized_name}</div>
-                                <div className="mostPlayedHeroesMatchCount">{asd.games}</div>
-                                <div className="mostPlayedHeroesWinRate">{heroWinRate?.toFixed(2)}%</div>
-                            </li>
-                        )
-                    })
-                }
+                    }
+                </div>
             </div>
 
         </div>

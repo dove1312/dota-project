@@ -20,7 +20,7 @@ function FrontPage() {
     axios({
       url: `https://api.opendota.com/api/heroStats`
     }).then((stats) => {
-      console.log(stats.data)
+      // console.log(stats.data)
       setHeroesData(stats.data)
 
       const heroInfo = stats.data;

@@ -35,9 +35,9 @@ const Players = ({ heroesData }) => {
         setPlayerWinLoss(playerData)
 
         const recentMatchesApi = await axios({
-            url: ` https://api.opendota.com/api/players/${playerId}/recentMatches `
+            url: ` https://api.opendota.com/api/players/${playerId}/recentmatches `
         })
-        // console.log(recentMatchesApi)
+        console.log(recentMatchesApi)
         setRecentMatches(recentMatchesApi)
 
         const playerHeroApi = await axios({

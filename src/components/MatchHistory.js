@@ -19,10 +19,10 @@ const MatchHistory = ({ recentMatchesData, heroesData }) => {
 
 
     return (
-        <div className='header'>
-            LATEST MATCHES
+        <div>
+            <p className="header">LATEST MATCHES</p>
             <div className="playerInfoBox">
-                <div className="labelContainer">
+                <div className="recentMatchesNav">
                     <div className="label1">Hero</div>
                     <div className="label2">Result</div>
                     <div className="label3">Type</div>
@@ -30,13 +30,13 @@ const MatchHistory = ({ recentMatchesData, heroesData }) => {
                     <div className="label5">KDA</div>
                 </div>
                 {recentMatchesData?.map((matchHistoryObject) => {
-                    console.log(matchHistoryObject)
+                    // console.log(matchHistoryObject)
 
                     const findHero = heroesData?.filter((heroObject) => {
                         return `${heroObject.hero_id}` === `${matchHistoryObject.hero_id}`
                     })
 
-                    console.log(heroesData)
+                    // console.log(heroesData)
 
                     const findHeroName = heroesData?.filter((heroObject) => {
                         return heroObject.hero_id === matchHistoryObject.hero_id
@@ -61,16 +61,29 @@ const MatchHistory = ({ recentMatchesData, heroesData }) => {
 
 
                     return (
-                        <li className="mostPlayedHeroesRow">
-                            <img src={`https://api.opendota.com${findHero[0].img}`} alt="" className='mostPlayedHeroesImg' />
+                        <div className="matchHistoryContainer">
                             <Link to={`/matches/${matchHistoryObject.match_id}`}>
-                                <span className="playedHeroName">{findHeroName[0].localized_name}</span>
+                                <li className="matchHistory">
+                                    <div className="row1">
+                                        <img src={`https://api.opendota.com${findHero[0].img}`} alt="" className='mostPlayedHeroesImg' />
+                                        <span className="playedHeroName">{findHeroName[0].localized_name}</span>
+                                    </div>
+                                    <div className="row2">
+                                        {/* <span className={playerWin ? 'matchWon' : "matchLose"}>{playerWin ? 'Won Match' : 'Lost Match'}</span> */}
+                                        {playerWin ? <span className='matchWon'>Won Match</span> : <span className='matchLose'>Lost Match</span>}
+                                    </div>
+                                    <div className="row3">
+                                        <span className='lobbyType'>{lobbyTypeString}</span>
+                                    </div>
+                                    <div className="row4">
+                                        <span className="gameDuration">{durationFixed}:{durationSeconds}</span>
+                                    </div>
+                                    <div className="row5">
+                                        <span className="kda">{matchHistoryObject.kills}/{matchHistoryObject.deaths}/{matchHistoryObject.assists}</span>
+                                    </div>
+                                </li>
                             </Link>
-                            <span className="matchResult">{playerWin ? 'win' : 'loss'}</span>
-                            <span className='lobbyType'>{lobbyTypeString}</span>
-                            <span className="gameDuration">{durationFixed}:{durationSeconds}</span>
-                            <span className="kda">{matchHistoryObject.kills}/{matchHistoryObject.deaths}/{matchHistoryObject.assists}</span>
-                        </li>
+                        </div>
                     )
                 })}
             </div>
