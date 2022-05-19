@@ -18,28 +18,31 @@ const MatchDetails = ({ heroesData, matchHistoryObject, matchHistoryData, search
         })
 
         // console.log(matchHistoryData)
-        // console.log(matchDetail)
+        console.log(matchDetail)
         console.log(matchDetail.data)
+
+        const asdf = lobbyTypeData[matchDetail?.data.lobby_type]?.name
+        const lobbyToString = asdf?.replace('lobby_type_', '')
+        console.log(lobbyTypeData, asdf, lobbyToString, 'ok', matchDetail.data.lobby_type)
 
         setMatchInfo({
             matchId: matchDetail.data.match_id,
             playerDataArray: matchDetail.data.players,
             gameMode: matchDetail.data.game_mode,
-            gameDuration: matchDetail.data.gameDuration,
-            lobbyType: matchDetail.data.lobby_type,
+            gameDuration: matchDetail.data.duration,
+            lobbyType: lobbyToString,
             radiantWin: matchDetail.data.radiant_win,
             radiantScore: matchDetail.data.radiant_score,
             direScore: matchDetail.data.dire_score,
-            lastPlayed: matchDetail.data.start_time
+            lastPlayed: matchDetail.data.start_time,
         })
     }
+    
 
     // const lobbyType = lobbyTypeData[matchInfo?.lobbyType].name
 
     useEffect(() => {
-        const asdf = lobbyTypeData[matchInfo?.lobbyType]?.name
-        const lobbyToString = asdf?.replace('lobby_type_', '')
-        setLobbyString(lobbyToString)
+        
     }, [])
 
 
@@ -50,6 +53,8 @@ const MatchDetails = ({ heroesData, matchHistoryObject, matchHistoryData, search
 
     const durationFixed2 = Math.floor(matchInfo?.gameDuration / 60)
     const durationSeconds2 = matchInfo?.gameDuration % 60
+    
+    
     console.log(durationFixed2)
 
     const getLastPlayedTime = () => {
@@ -87,7 +92,7 @@ const MatchDetails = ({ heroesData, matchHistoryObject, matchHistoryData, search
                 <div className="playerOverviewRight">
                     <div className="lastMatchContainer">
                         {matchHistoryData?.lastPlayedTime}
-                        <p className='capital'>{lobbyString}</p>
+                        <p className='capital'>{matchInfo?.lobbyType}</p>
                         <p className='description'>LOBBY TYPE</p>
                     </div>
                     <div className="recordContainer">
@@ -103,7 +108,7 @@ const MatchDetails = ({ heroesData, matchHistoryObject, matchHistoryData, search
             <div className="matchDetails">
                 <div className="matchDetailsTitle">
                     <div className="gameResult">
-                        {matchInfo?.radiantWin ? <h2>RADIANT VICTORY</h2> : <h2>DIRE VICTORY</h2>}
+                        {matchInfo?.radiantWin ? <h2 className='matchWon'>RADIANT VICTORY</h2> : <h2 className='matchLose'>DIRE VICTORY</h2>}
                     </div>
                     <div className="gameScoreContainer">
                         <span className="scoreLeft">{matchInfo?.radiantScore}</span>
@@ -138,7 +143,7 @@ const MatchDetails = ({ heroesData, matchHistoryObject, matchHistoryData, search
                         return (
                             <div className='playerRow' key={`player${idx}`} >
                                 <div className="mdRow mdRow1">
-                                    <img src={`https://api.opendota.com${findHeroName[0]?.img}`} alt="" className='mostPlayedHeroesImg' />
+                                    {findHeroName && <img src={`https://api.opendota.com${findHeroName[0]?.img}`} alt="" className='mostPlayedHeroesImg' />}
                                 </div>
                                 <div className='mdRow mdRow2'>
                                     {player?.personaname ? <Link to={`/player/${player?.account_id}`}>
@@ -167,8 +172,9 @@ const MatchDetails = ({ heroesData, matchHistoryObject, matchHistoryData, search
                                 </div>
                                 <div className="itemsContainer">
                                     {newArray.map((itemName, idx) => {
+                                        // console.log(itemName, idx)
                                         return (<div className='imgContainer' key={`${itemName}-${idx}`}>
-                                            <img src={`http://cdn.dota2.com/apps/dota2/images/items/${itemName}_lg.png`} alt="" />
+                                            {itemName !== 'empty' && <img src={`http://cdn.dota2.com/apps/dota2/images/items/${itemName}_lg.png`} alt="" />}
                                         </div>
                                         )
                                     })}

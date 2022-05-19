@@ -1,6 +1,7 @@
 @import './styles/sass/partials/setup';
 
 
+
 body{
     background-color: #1c242d;
     color: white;
@@ -10,6 +11,47 @@ body{
     max-width: 1200px;
     width: 90%;
     margin: 0 auto;
+}
+
+.searchNav{
+    margin: 30px 0;
+    padding: 20px;
+    background-color: #2e3740;
+    
+    h2{
+        font-weight: normal;
+    }
+
+    p{
+        color: #abafb3;
+    }
+
+}
+
+.usersContainer{
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+
+    img{
+        width: 80px;
+        margin-right: 5px;
+    }
+
+    .usersList{
+        width: calc(100% / 3 - 10px);
+        background-color: #2e3740;
+        margin: 5px;
+        padding: 10px;
+    }
+
+    .userContainer{
+        display: flex;
+
+        .userText{
+            color: white;
+        }
+    }
 }
 
 .heroList {
@@ -106,6 +148,8 @@ body{
     img{
         width: 100px;
         margin-right: 10px;
+        border: 1px solid #abafb3;
+
     }
 
     .playerOverviewLeft{
@@ -122,7 +166,9 @@ body{
 }
 
 .header{
-    margin-top: 30px;
+    font-size: 26px;
+    margin-bottom: 30px;
+    margin-top: 50px;
 }
 
 .labelContainer{
@@ -137,7 +183,7 @@ body{
     }
 
     .label1{
-        width: 223px;
+        width: 243px;
         // margin-right: 280px;
     }
 
@@ -146,13 +192,17 @@ body{
     }
 }
 
-// .mostPlayedHeroesContainer{
-//     padding: 20px;
-// }
+.playerInfoBox{
+    background-color: #242f39;
+}
+
+.mostPlayedHeroesContainer{
+    padding: 10px 20px;
+}
 
 
 .mostPlayedHeroesRow{
-    padding: 10px 20px;
+    padding: 15px 20px;
     display: flex;
     align-items: center;
     list-style: none;
@@ -161,10 +211,12 @@ body{
 
     img{
         margin-right: 10px;
+        border: 2px solid #abafb3;
     }
 
     .mostPlayedHeroNames{
         width: 200px;
+        color: #92BB35;
     }
 
     .mostPlayedHeroesMatchCount{
@@ -181,6 +233,7 @@ body{
 }
 
 .recentMatchesNav{
+    font-size: 20px;
     padding: 10px 50px;
     display: flex;
     // justify-content: center;
@@ -205,6 +258,7 @@ body{
 }
 
 .matchHistoryContainer{
+    // background-color: #242F39;
 
     a{
         color: #DFE4EB;
@@ -216,15 +270,33 @@ body{
 }
 
 .matchHistory{
-    padding: 50px;
+    font-size: 20px;
+    padding: 25px 30px;
     margin-bottom: 20px;
     display: flex;
     // justify-content: center;
     align-items: center;
     list-style: none;
-    background-color: #242F39;
+    // background-color: #242F39;
     border-radius: 6px;
     // text-align: center;
+    border: 2px solid #abafb3;
+}
+
+.matchTypeOne{
+    background-color: #344244;
+}
+
+.matchTypeTwo{
+    background-color: #2d3741;
+}
+
+.matchWon{
+    color: #a9cf54;
+}
+
+.matchLose{
+    color: #c23c2a;
 }
 
 .capital{
@@ -232,24 +304,32 @@ body{
 }
 
 .itemsContainer{
+    width: 30%;
     display: flex;
+}
+
+
+
+.matchDetails .mostPlayedHeroesImg{
+    height: 50px;
+}
+
+.matchDetails{
+    img{
+        height: 40px;
+    }
 }
 
 .mostPlayedHeroesImg{
     height: 50px;
     margin-right: 5px;
+    border: 2px solid #abafb3;
 }
 
 .row1{
     width: 25%;
     display: flex;
-    justify-content: center;
-    flex-direction: column;
-    text-align: center;
-    img{
-        object-fit: contain;
-    }
-    
+    align-items: center;
 }
 
 .row2{
@@ -275,12 +355,6 @@ body{
 .playedHeroName{
     color: #a9cf54;
     // text-decoration: none;
-}
-
-.matchDetails{
-    img{
-        height: 40px;
-    }
 }
 
 .matchDetailContainer{
@@ -326,6 +400,7 @@ body{
 .playerRow{
     padding: 20px;
     display: flex;
+    justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid darkslategray;
 }
@@ -345,7 +420,7 @@ body{
 
 .mdRow2{
     width: 15%;
-    margin: 0 10px;
+    // margin: 0 10px;
 }
 
 .mdRow3{
@@ -384,3 +459,10 @@ a{
 .imgContainer{
     border: 1px solid #abafb3;
 }
+
+
+
+
+
+
+@import './styles/sass/partials/mediaQueries';

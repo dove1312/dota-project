@@ -1,0 +1,50 @@
+@media(max-width: 1200px){
+
+    .mdRow5, .mdRow6, .mdRow7{
+        display: none;
+    }
+
+    .playerRow{
+        justify-content: space-evenly;
+    }
+
+    .itemsContainer{
+        width: 40%;
+    }
+
+}
+
+
+@media(max-width: 940px){
+
+    .mdRow1{
+        width: unset;
+    }
+    
+    .mdRow3{
+        width: 15%;
+    }
+
+    .mdRow4{
+        display: none;
+    }
+
+    .itemsContainer{
+        width: 50%;
+    }
+}
+
+@media(max-width: 768px){
+
+    .mdRow3{
+        width: 25%;
+    }
+
+    .itemsContainer{
+        display: none;
+    }
+}
+
+@media(max-width: 480px){
+
+}

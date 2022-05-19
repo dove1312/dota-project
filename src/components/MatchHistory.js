@@ -21,7 +21,7 @@ const MatchHistory = ({ recentMatchesData, heroesData }) => {
     return (
         <div>
             <p className="header">LATEST MATCHES</p>
-            <div className="playerInfoBox">
+            <div className="recentMatchesContainer">
                 <div className="recentMatchesNav">
                     <div className="label1">Hero</div>
                     <div className="label2">Result</div>
@@ -29,7 +29,7 @@ const MatchHistory = ({ recentMatchesData, heroesData }) => {
                     <div className="label4">Duration</div>
                     <div className="label5">KDA</div>
                 </div>
-                {recentMatchesData?.map((matchHistoryObject) => {
+                {recentMatchesData?.map((matchHistoryObject, idx) => {
                     // console.log(matchHistoryObject)
 
                     const findHero = heroesData?.filter((heroObject) => {
@@ -63,7 +63,7 @@ const MatchHistory = ({ recentMatchesData, heroesData }) => {
                     return (
                         <div className="matchHistoryContainer">
                             <Link to={`/matches/${matchHistoryObject.match_id}`}>
-                                <li className="matchHistory">
+                                <li className={idx%2===1?'matchHistory matchTypeOne':'matchHistory matchTypeTwo'}>
                                     <div className="row1">
                                         <img src={`https://api.opendota.com${findHero[0].img}`} alt="" className='mostPlayedHeroesImg' />
                                         <span className="playedHeroName">{findHeroName[0].localized_name}</span>
