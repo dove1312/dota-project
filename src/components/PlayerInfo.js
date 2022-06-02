@@ -47,6 +47,7 @@ const Players = ({ heroesData }) => {
         // setPlayerHeroData(playerHeroApi)
 
         const slicedHeroData = playerHeroApi.data.slice(0, 10)
+        // console.log(playerHeroApi, slicedHeroData)
 
         const getLastPlayedTime = (matchInfo) => {
             const currentTime = new Date();

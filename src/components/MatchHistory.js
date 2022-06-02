@@ -58,6 +58,29 @@ const MatchHistory = ({ recentMatchesData, heroesData }) => {
 
                     const durationSeconds = matchHistoryObject.duration % 60
 
+                    const getLastPlayedTime = () => {
+                        const currentTime = new Date();
+                        const passedTime = currentTime.getTime() - matchHistoryObject.start_time * 1000;
+            
+                        let playedDate = 0
+                        if (passedTime < 60000) {
+                            playedDate = 1;
+                            return "2 minutes ago";
+                        } else if (passedTime < 3600000) {
+                            playedDate = passedTime / 60000;
+                            return `${Math.floor(playedDate)} minute${passedTime < 120000 ? ' ' : 's'} ago`;
+                        } else if (passedTime < 86400000) {
+                            playedDate = passedTime / 3600000;
+                            return `${Math.floor(playedDate)} hour${passedTime < 7200000 ? ' ' : 's'} ago`;
+                        } else if (passedTime < 31536000000) {
+                            playedDate = passedTime / 86400000;
+                            return `${Math.floor(playedDate)} day${passedTime < 172800000 ? ' ' : 's'} ago`;
+                        } else {
+                            playedDate = passedTime / 31536000000;
+                            return `${Math.floor(playedDate)} year${passedTime < 63072000000 ? ' ' : 's'} ago`;
+                        }
+                    }
+
 
 
                     return (
@@ -71,6 +94,9 @@ const MatchHistory = ({ recentMatchesData, heroesData }) => {
                                     <div className="row2">
                                         {/* <span className={playerWin ? 'matchWon' : "matchLose"}>{playerWin ? 'Won Match' : 'Lost Match'}</span> */}
                                         {playerWin ? <span className='matchWon'>Won Match</span> : <span className='matchLose'>Lost Match</span>}
+                                        <div className="lastPlayedTime">
+                                            {getLastPlayedTime()}
+                                        </div>
                                     </div>
                                     <div className="row3">
                                         <span className='lobbyType'>{lobbyTypeString}</span>

@@ -26,7 +26,7 @@ const Home = () => {
     }
 
 
-    console.log(userInput)
+    // console.log(userInput)
 
     return (
         <div className='wrapper'>

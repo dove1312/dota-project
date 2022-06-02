@@ -24,6 +24,7 @@ const MatchDetails = ({ heroesData, matchHistoryObject, matchHistoryData, search
         const asdf = lobbyTypeData[matchDetail?.data.lobby_type]?.name
         const lobbyToString = asdf?.replace('lobby_type_', '')
         console.log(lobbyTypeData, asdf, lobbyToString, 'ok', matchDetail.data.lobby_type)
+        console.log(matchDetail.data.players)
 
         setMatchInfo({
             matchId: matchDetail.data.match_id,
@@ -81,6 +82,11 @@ const MatchDetails = ({ heroesData, matchHistoryObject, matchHistoryData, search
     }
 
     const lastMatch = getLastPlayedTime()
+    
+    
+    const firstFivePlayersData = matchInfo?.playerDataArray.slice(0, 5)
+    const secondFivePlayersData = matchInfo?.playerDataArray.slice(5,5)
+
 
     return (
         <div className="wrapper">
@@ -139,6 +145,8 @@ const MatchDetails = ({ heroesData, matchHistoryObject, matchHistoryData, search
                         const kda = (player.kills + player.assists) / player.deaths
                         const newKda = kda.toFixed(1)
                         // console.log(newKda)
+
+
 
                         return (
                             <div className='playerRow' key={`player${idx}`} >

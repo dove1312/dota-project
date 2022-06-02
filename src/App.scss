@@ -60,11 +60,6 @@ body{
     list-style: none;
 }
 
-.heroImg{
-    width: 256px;
-    height: 144px;
-}
-
 .topNav{
     background-color: #242F39;
     padding: 15px;
@@ -90,6 +85,8 @@ body{
 }
 
 .homeButton{
+    display: flex;
+    align-items: center;
     background-color: #5f7a99;
     padding: 5px 15px;
     border-radius: 3px;
@@ -465,4 +462,5 @@ a{
 
 
 
+@import './styles/sass/partials/heroInfo';
 @import './styles/sass/partials/mediaQueries';

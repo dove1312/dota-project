@@ -43,7 +43,7 @@ const playerOverview = ({ matchHistoryData, searchResult, heroesData }) => {
                 <div className="mostPlayedHeroesContainer">
                     {
                         matchHistoryData?.playerheroData.map((asd) => {
-                            // console.log(asd)
+                            console.log(asd)
 
                             const heroWinRate = asd.win * 100 / asd.games
 

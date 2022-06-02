@@ -1,0 +1,108 @@
+.heroOverview{
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+    background-color: #2E3740;
+    border-radius: 6px;
+    margin: 30px 0;
+    img{
+        width: 150px;
+    }
+    h2{
+        font-weight: normal;
+    }
+}
+
+.heroLore{
+    margin-top: 20px;
+    line-height: 1.25em;
+}
+
+// .heroInfoContainer{
+//     display: flex;
+//     justify-content: space-between;
+// }
+
+.heroAttribute{
+    width: 40%;
+    // padding: 30px;
+    background-color: #2E3740;
+    border-radius: 6px;
+}
+
+.attributeContainer{
+    display: flex;
+    justify-content: space-around;
+}
+
+.strengthContainer, .agilityContainer, .intelligenceContainer{
+    width: calc(100%/3);
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: center;
+    text-align: center;
+    padding: 10px;
+    border: 1px solid rgb(255,255,255, 0.6);
+    // border-radius: 6px;
+}
+
+.attributeRow{
+    display: flex;
+
+}
+
+.attributeLeft{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    border: 1px solid rgb(255,255,255, 0.6);
+    padding: 15px;
+}
+
+.attributeRight{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    border: 1px solid rgb(255,255,255, 0.6);
+    padding: 15px;
+}
+
+.agility, .strength, .intelligence{
+    border-radius: 50%;
+    border: 2px solid white;
+    // display: block;
+}
+
+
+.winRateContainer{
+    // width: 100%;
+    display: flex;
+    background-color: #2E3740;
+
+    img{
+        width: 100%;
+    }
+}
+
+.winRateUp, .winRateDown{
+    display: flex;
+    justify-content: center;
+    border: 1px solid rgb(255,255,255, 0.6);
+    // padding: 20px;
+}
+
+.winRateUp{
+    // width: 100%;
+    // height: 132px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+// .winRateCol{
+//     // display: flex;
+// }
+
+
+
+// #344244
